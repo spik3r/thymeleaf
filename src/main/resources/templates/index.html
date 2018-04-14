@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Highscore</h2>
+    <p>HHHH-Highscores
+        </br>
+        The classes that can be used are: .active, .success, .info, .warning, and .danger.
+    </p>
+
+
+    <table class="table">
+        <tr class="success">
+            <td th:text="id">...</td>
+            <td th:text="userId">...</td>
+            <td th:text="score">...</td>
+            <td colspan="2" th:text="date">...</td>
+        </tr>
+        <th:block th:each="highscore, rowStat : ${highscores}" >
+            <tr th:class="${rowStat.odd}? 'active' : 'info'" class="odd">
+                <td th:text="${highscore.id}">...</td>
+                <td th:text="${highscore.userId}">...</td>
+                <td th:text="${highscore.score}">...</td>
+                <td colspan="2" th:text="${highscore.date}">...</td>
+            </tr>
+        </th:block>
+    </table>
+
+</div>
+
+</body>
+</html>
